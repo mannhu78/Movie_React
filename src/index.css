@@ -1,0 +1,15 @@
+body {
+  font-family: Arial;
+  background: #111;
+  color: white;
+}
+
+.movie-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 200px);
+  gap: 20px;
+}
+
+.movie-card img {
+  width: 100%;
+}
