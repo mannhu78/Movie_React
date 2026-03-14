@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import MovieCard from "../components/MovieCard"
 import HeroBanner from "../components/HeroBanner"
 import Navbar from "../components/Navbar"
+import "./Home.css"
 import Footer from "../components/Footer"
 const API_KEY = "6059f31d1aeea82e19c9a72a075c9cf2"
 
@@ -13,6 +14,7 @@ function Home() {
     const [popular, setPopular] = useState([])
     const [topRated, setTopRated] = useState([])
     const [genres, setGenres] = useState([])
+    const [bannerIndex, setBannerIndex] = useState(0)
 
     const searchMovies = async () => {
 
@@ -28,6 +30,7 @@ function Home() {
     }
 
     useEffect(() => {
+        
 
         fetch(`https://api.themoviedb.org/3/trending/movie/day?api_key=${API_KEY}`)
             .then(res => res.json())
@@ -46,6 +49,21 @@ function Home() {
             .then(data => setGenres(data.genres))
 
     }, [])
+    useEffect(() => {
+
+        if (trending.length === 0) return
+
+        const interval = setInterval(() => {
+
+            setBannerIndex(prev =>
+                prev === trending.length - 1 ? 0 : prev + 1
+            )
+
+        }, 5000)
+
+        return () => clearInterval(interval)
+
+    }, [trending])
 
     return (
         <div>
@@ -57,7 +75,7 @@ function Home() {
             />
         
             {trending.length > 0 && (
-                <HeroBanner movie={trending[0]} />
+                <HeroBanner movies={trending} bannerIndex={bannerIndex} />
             )}
             {movies.length > 0 && (
                 <>
