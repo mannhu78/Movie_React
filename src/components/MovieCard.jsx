@@ -2,8 +2,13 @@ import { Link } from "react-router-dom"
 
 function MovieCard({ movie }) {
 
+    const year = movie.release_date ? movie.release_date.split("-")[0] : "N/A"
+
     return (
-        <Link to={`/movie/${movie.id}`}>
+        <Link
+            to={`/movie/${movie.id}`}
+            style={{ textDecoration: "none", color: "white" }}
+        >
 
             <div className="movie-card">
 
@@ -12,7 +17,27 @@ function MovieCard({ movie }) {
                     alt={movie.title}
                 />
 
-                <h3>{movie.title}</h3>
+                <div className="movie-info">
+
+                    <h3 className="movie-title">
+
+                        {movie.title || movie.name}
+
+                    </h3>
+
+                    <div className="movie-meta">
+
+                        <span className="movie-rating">
+                            ⭐ {movie.vote_average?.toFixed(1)}
+                        </span>
+
+                        <span className="movie-year">
+                            {year}
+                        </span>
+
+                    </div>
+
+                </div>
 
             </div>
 

@@ -1,15 +1,77 @@
 body {
-  font-family: Arial;
-  background: #111;
+  background-color: #141414;
   color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.movie-row {
+  display: flex;
+  overflow-x: auto;
+  gap: 20px;
+  padding: 20px;
+}
+
+.movie-row::-webkit-scrollbar {
+  display: none;
+}
+h2 {
+  margin-left: 20px;
+  margin-top: 30px;
+}
+
+.movie-grid {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+}
+
+.movie-card img {
+  width: 200px;
+  border-radius: 8px;
+  transition: transform 0.3s;
+}
+
+.movie-card img:hover {
+  transform: scale(1.1);
 }
 
 .movie-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 200px);
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 20px;
+  padding: 20px;
+}
+.movie-card {
+  width: 200px;
+  transition: transform 0.3s;
 }
 
 .movie-card img {
   width: 100%;
+  border-radius: 8px;
 }
+
+.movie-card:hover {
+  transform: scale(1.05);
+}
+
+.movie-info {
+  margin-top: 8px;
+}
+
+.movie-title {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.movie-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #bbb;
+}
+
+.movie-rating {
+  color: #ffd700;
+}
+
