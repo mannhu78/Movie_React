@@ -1,11 +1,11 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-import Home from "./pages/Home"
-import MovieDetail from "./pages/MovieDetail"
-import Navbar from "./components/Navbar"
+import Home from "./pages/Home/Home"
+import MovieDetail from "./pages/MovieDetail/MovieDetail"
+import Navbar from "./components/Navbar/Navbar"
 function App() {
   return (
     <BrowserRouter>
-      
+
 
       <Routes>
 

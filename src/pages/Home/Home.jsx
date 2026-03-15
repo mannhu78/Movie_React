@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react"
-import MovieCard from "../components/MovieCard"
-import HeroBanner from "../components/HeroBanner"
-import Navbar from "../components/Navbar"
+import MovieCard from "../../components/MovieCard"
+import HeroBanner from "../../components/HeroBanner/HeroBanner"
+import Navbar from "../../components/Navbar/Navbar"
 import "./Home.css"
-import Footer from "../components/Footer"
+import Footer from "../../components/footer/Footer"
 const API_KEY = "6059f31d1aeea82e19c9a72a075c9cf2"
 
 function Home() {
@@ -30,7 +30,7 @@ function Home() {
     }
 
     useEffect(() => {
-        
+
 
         fetch(`https://api.themoviedb.org/3/trending/movie/day?api_key=${API_KEY}`)
             .then(res => res.json())
@@ -73,7 +73,7 @@ function Home() {
                 setQuery={setQuery}
                 searchMovies={searchMovies}
             />
-        
+
             {trending.length > 0 && (
                 <HeroBanner movies={trending} bannerIndex={bannerIndex} />
             )}

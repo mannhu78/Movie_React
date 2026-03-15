@@ -1,9 +1,9 @@
 import { useParams } from "react-router-dom"
 import { useEffect, useState } from "react"
-import Navbar from "../components/Navbar"
+import Navbar from "../../components/Navbar/Navbar"
 import "./MovieDetail.css"
 import { Link } from "react-router-dom"
-import Footer from "../components/Footer"
+import Footer from "../../components/footer/Footer"
 
 const API_KEY = "6059f31d1aeea82e19c9a72a075c9cf2"
 
@@ -116,7 +116,7 @@ function MovieDetail({ query, setQuery, searchMovies }) {
                         ))}
 
                     </div>
-                   
+
                     <h2>Similar Movies</h2>
 
                     <div className="movie-row">
